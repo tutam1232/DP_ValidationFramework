@@ -8,7 +8,7 @@ namespace DesignPattern.Validators.Rules
 {
     public interface IValidationRuleStrategy<T>
     {
-        bool IsValid(T value);
+        abstract bool IsValid(T value);
         string ErrorMessage { get; }
     }
 }
