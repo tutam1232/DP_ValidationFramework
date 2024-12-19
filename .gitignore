@@ -1,0 +1,86 @@
+# Visual Studio Specific
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build Directories
+bin/
+obj/
+[Bb]uild/
+[Ll]og/
+
+# Byproducts of Builds
+*.exe
+*.dll
+*.pdb
+*.cache
+*.ilk
+*.log
+*.csv
+*.tmp
+*.xml
+*.pri
+*.idb
+*.sdf
+
+# NuGet Packages
+*.nupkg
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# Temporary Files
+*.tmp
+*.temp
+~$*
+*.swp
+*.bak
+*.orig
+
+# Editor Directories
+.idea/
+*.VSCode/
+*.vscode/
+
+# Application Insights
+*.ai.config
+
+# Windows Thumbnail Cache
+Thumbs.db
+
+# Publishing
+publish/
+AppPackages/
+
+# Rider
+.idea/
+.idea.modules/
+.idea/workspace.xml
+
+# DotNet
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# Resharper
+_ReSharper*
+*.DotSettings.user
+resharper*.log
+
+# Coverage and Reports
+TestResults/
+*.coverage
+*.coveragexml
+*.codecov
+*.lcov
+coverage/
+
+# Other
+*.log
+*.tlog
+*.lastbuildstate
+*.manifest
+*.cache

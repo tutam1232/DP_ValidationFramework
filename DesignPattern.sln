@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DesignPattern", "DesignPattern\DesignPattern.csproj", "{9545309A-4A06-49C8-8367-39E14BD54D0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DesignPattern", "DesignPattern\DesignPattern.csproj", "{9545309A-4A06-49C8-8367-39E14BD54D0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draft.TestFramework", "Draft.TestFramework\Draft.TestFramework.csproj", "{9B5845AD-CE90-412B-AA5E-BCF4CE2CFEBE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{9545309A-4A06-49C8-8367-39E14BD54D0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9545309A-4A06-49C8-8367-39E14BD54D0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9545309A-4A06-49C8-8367-39E14BD54D0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B5845AD-CE90-412B-AA5E-BCF4CE2CFEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B5845AD-CE90-412B-AA5E-BCF4CE2CFEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B5845AD-CE90-412B-AA5E-BCF4CE2CFEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B5845AD-CE90-412B-AA5E-BCF4CE2CFEBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
