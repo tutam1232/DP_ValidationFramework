@@ -23,10 +23,5 @@ namespace DesignPattern.Attributes
             if (value == null) return false;
             return ValidationServices.checkRegex(value.ToString(), _pattern);
         }
-
-        public override string FormatErrorMessage(string name)
-        {
-            return string.Format(ErrorMessage, name);
-        }
     }
 }
