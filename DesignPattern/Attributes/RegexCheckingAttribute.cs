@@ -12,7 +12,7 @@ namespace DesignPattern.Attributes
 {
     public class RegexCheckingAttribute : ValidationAttribute
     {
-        public string _pattern { get; set; }
+        private readonly string _pattern;
         public RegexCheckingAttribute(string pattern)
         {
             _pattern = pattern;
