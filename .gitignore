@@ -40,9 +40,15 @@ $RECYCLE.BIN/
 *.pidb
 *.obj
 *.exe
+*.dll
 *.pdb
 *.mdb
 *.ilk
+*.log
+*.csv
+*.tmp
+*.xml
+*.pri
 *.idb
 *.tlog
 *.lastbuildstate

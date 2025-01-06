@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\this pc\\source\\repos\\DesignPattern\\DesignPattern\\DesignPattern.csproj": {}
+    "D:\\Desktop\\DP_Validation\\DP_ValidationFramework\\DesignPattern\\DesignPattern.csproj": {}
   },
   "projects": {
-    "C:\\Users\\this pc\\source\\repos\\DesignPattern\\DesignPattern\\DesignPattern.csproj": {
+    "D:\\Desktop\\DP_Validation\\DP_ValidationFramework\\DesignPattern\\DesignPattern.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\this pc\\source\\repos\\DesignPattern\\DesignPattern\\DesignPattern.csproj",
+        "projectUniqueName": "D:\\Desktop\\DP_Validation\\DP_ValidationFramework\\DesignPattern\\DesignPattern.csproj",
         "projectName": "DesignPattern",
-        "projectPath": "C:\\Users\\this pc\\source\\repos\\DesignPattern\\DesignPattern\\DesignPattern.csproj",
-        "packagesPath": "C:\\Users\\this pc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\this pc\\source\\repos\\DesignPattern\\DesignPattern\\obj\\",
+        "projectPath": "D:\\Desktop\\DP_Validation\\DP_ValidationFramework\\DesignPattern\\DesignPattern.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Desktop\\DP_Validation\\DP_ValidationFramework\\DesignPattern\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\this pc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.devexpress.com/xe8r2Wu4yoDi8sVTgJ56Oc4lsRpV3gELgS5XaIGBfpwvpWjyup/api": {}
         },
         "frameworks": {
           "net8.0": {
@@ -60,7 +61,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

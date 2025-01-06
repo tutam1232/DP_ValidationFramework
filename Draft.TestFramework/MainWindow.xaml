@@ -1,0 +1,39 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Draft.TestFramework"
+        xmlns:System="clr-namespace:System;assembly=System.Runtime"
+        xmlns:Validation="clr-namespace:Draft.Validation;assembly=Draft.Validation"
+        xmlns:Accessibility="clr-namespace:Accessibility;assembly=Accessibility"
+        xmlns:WPF="clr-namespace:Draft.Validation.WPF;assembly=Draft.Validation"
+        xmlns:Rule="clr-namespace:Draft.Validation.Rule;assembly=Draft.Validation"
+        xmlns:Display="clr-namespace:Draft.Validation.Display;assembly=Draft.Validation"
+        xmlns:Trigger="clr-namespace:Draft.Validation.Trigger;assembly=Draft.Validation"
+        x:Name="window"
+        x:Class="Draft.TestFramework.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow"
+        Height="450"
+        Width="800">
+    <StackPanel>
+        <TextBox x:Name="textBox"
+                 TextWrapping="Wrap"
+                 Width="120">
+            <WPF:Source.Trigger>
+                <Trigger:ButtonPressedTrigger TriggerButton="{x:Reference Name=button}" />
+            </WPF:Source.Trigger>
+            <WPF:Source.Rules>
+                <Rule:ValidateRequired />
+                <Rule:ValidateIsDigitOnly ErrorMessage="asdasdasd" />
+            </WPF:Source.Rules>
+        </TextBox>
+        <WPF:ValidationDisplayControl
+                                      Source="{Binding ElementName=textBox, Mode=OneWay}">
+            <WPF:ValidationDisplayControl.Display>
+                <Display:ToolTipDisplay />
+            </WPF:ValidationDisplayControl.Display>
+        </WPF:ValidationDisplayControl>
+<Button x:Name="button" Content="sadfa"/>
+    </StackPanel>
+</Window>
