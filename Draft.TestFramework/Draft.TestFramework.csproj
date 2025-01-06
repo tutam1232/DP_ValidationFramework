@@ -8,4 +8,8 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Draft.Validation\Draft.Validation.csproj" />
+  </ItemGroup>
+
 </Project>
