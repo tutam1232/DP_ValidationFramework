@@ -9,7 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Draft.Validation\Draft.Validation.csproj" />
+    <Reference Include="Draft.Validation">
+      <HintPath>..\..\..\Draft.Validation.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

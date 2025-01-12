@@ -14,6 +14,10 @@
         Title="MainWindow"
         Height="450"
         Width="800">
+    <Window.DataContext>
+        <local:MainWindowViewModel />
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition />
@@ -162,10 +166,36 @@
                     </WPF:ValidationDisplayControl.Display>
                 </WPF:ValidationDisplayControl>
             </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Attribute (MVVM)" />
+                <TextBox x:Name="textBox6"
+                         Text="{Binding Attribute, NotifyOnSourceUpdated=True}">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler />
+                    </WPF:Source.Handler>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox6, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:TextBlockDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Fluent (MVVM)" />
+                <TextBox x:Name="textBox7"
+                         Text="{Binding FluentValidator, NotifyOnSourceUpdated=True}">
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox7, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:MessageBoxDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
 
-            <Button x:Name="button"
-                    Content="Submit"
-                    Margin="0,10,0,10" />
+            <Button  x:Name="button"
+                     Content="Submit"
+                     Margin="0,10,0,10"
+                     Click="button_Click" />
 
         </StackPanel>
     </Grid>
