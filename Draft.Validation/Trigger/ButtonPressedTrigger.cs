@@ -16,11 +16,14 @@ public class ButtonPressedTrigger : ValidationTriggerBase
 	public FrameworkElement? TriggerButton
 	{
 		get => _triggerButton;
-		set
-		{
-			_triggerButton = value;
-			_triggerButton?.AddHandler(ButtonBase.ClickEvent, new RoutedEventHandler(OnButtonPressed));
-		}
+		set =>_triggerButton = value;
+	}
+
+	private readonly RoutedEventHandler? _buttonPressedHandler;
+
+	public ButtonPressedTrigger()
+	{
+		_buttonPressedHandler = OnButtonPressed;
 	}
 
 	private void OnButtonPressed(object sender, RoutedEventArgs e)
@@ -30,9 +33,11 @@ public class ButtonPressedTrigger : ValidationTriggerBase
 
 	public override void Attach()
 	{
+		_triggerButton?.AddHandler(ButtonBase.ClickEvent, _buttonPressedHandler);
 	}
 
 	public override void Detach()
 	{
+		_triggerButton?.RemoveHandler(ButtonBase.ClickEvent, _buttonPressedHandler);
 	}
 }

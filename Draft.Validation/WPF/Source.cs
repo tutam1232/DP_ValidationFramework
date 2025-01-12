@@ -33,17 +33,17 @@ public static class Source
 	public static readonly DependencyProperty HandlerProperty =
 		DependencyProperty.RegisterAttached(
 			"Handler",
-			typeof(IValidationHandler),
+			typeof(ValidationHandler),
 			typeof(Source),
-			new PropertyMetadata(new IValidationHandler()));
+			new PropertyMetadata(new ValidationHandler()));
 
 	[Browsable(false)]
-	public static IValidationHandler GetHandler(DependencyObject element)
+	public static ValidationHandler GetHandler(DependencyObject element)
 	{
-		var handler = (IValidationHandler)element.GetValue(HandlerProperty);
+		var handler = (ValidationHandler)element.GetValue(HandlerProperty);
 		var rules = GetRules(element);
 		handler.Rules = rules;
-		return (IValidationHandler)element.GetValue(HandlerProperty);
+		return (ValidationHandler)element.GetValue(HandlerProperty);
 	}
 
 

@@ -33,14 +33,14 @@ public class ValidationDisplayControl : ContentControl
 		{
 			if (e.OldValue is TextBox oldControl)
 			{
-				if (oldControl.GetValue(WPF.Source.HandlerProperty) is IValidationHandler handler)
+				if (oldControl.GetValue(WPF.Source.HandlerProperty) is ValidationHandler handler)
 				{
 					handler.Displays.Remove(displayer.Display);
 				}
 			}
 			if (e.NewValue is TextBox newControl)
 			{
-				if (newControl.GetValue(WPF.Source.HandlerProperty) is IValidationHandler handler)
+				if (newControl.GetValue(WPF.Source.HandlerProperty) is ValidationHandler handler)
 				{
 					handler.Displays.Add(displayer.Display);
 				}
@@ -74,7 +74,7 @@ public class ValidationDisplayControl : ContentControl
 		{
 			if (e.OldValue is ValidationDisplayBase oldDisplay)
 			{
-				if (displayer.Source?.GetValue(WPF.Source.HandlerProperty) is IValidationHandler handler)
+				if (displayer.Source?.GetValue(WPF.Source.HandlerProperty) is ValidationHandler handler)
 				{
 					handler.Displays.Remove(oldDisplay);
 				}
@@ -82,7 +82,7 @@ public class ValidationDisplayControl : ContentControl
 			if (e.NewValue is ValidationDisplayBase newDisplay)
 			{
 				newDisplay.Attach(displayer);
-				if (displayer.Source?.GetValue(WPF.Source.HandlerProperty) is IValidationHandler handler)
+				if (displayer.Source?.GetValue(WPF.Source.HandlerProperty) is ValidationHandler handler)
 				{
 					handler.Displays.Add(newDisplay);
 				}

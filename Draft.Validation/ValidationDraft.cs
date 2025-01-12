@@ -31,7 +31,7 @@ public interface IValidationRule
 	ValidateResult Validate(string content);
 }
 
-public class IValidationHandler
+public class ValidationHandler
 {
 	public List<IValidationRule> Rules { get; set; } = [];
 	public List<ValidationDisplayBase> Displays { get; set; } = [];
