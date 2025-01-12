@@ -16,7 +16,7 @@ public static class Source
 			"Handler",
 			typeof(ValidationHandler),
 			typeof(Source),
-			new PropertyMetadata(new ValidationHandler(), OnValidationHandlerChanged));
+			new PropertyMetadata(null, OnValidationHandlerChanged));
 
 	private static void OnValidationHandlerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 	{
