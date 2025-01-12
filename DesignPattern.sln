@@ -12,7 +12,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.TestFramework", "Draf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.Validation", "Draft.Validation\Draft.Validation.csproj", "{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draft.TestConsole", "Draft.TestConsole\Draft.TestConsole.csproj", "{7F8A2582-1635-4A9E-A820-D67CA791E185}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draft.TestWPF", "Draft.TestWPF\Draft.TestWPF.csproj", "{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,10 +32,10 @@ Global
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7F8A2582-1635-4A9E-A820-D67CA791E185}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7F8A2582-1635-4A9E-A820-D67CA791E185}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7F8A2582-1635-4A9E-A820-D67CA791E185}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7F8A2582-1635-4A9E-A820-D67CA791E185}.Release|Any CPU.Build.0 = Release|Any CPU
+		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
