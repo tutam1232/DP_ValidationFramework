@@ -1,4 +1,5 @@
 ﻿
+using Draft.Validation.Abstract;
 using Draft.Validation.WPF;
 using System.Windows.Controls;
 using System.Windows.Media;

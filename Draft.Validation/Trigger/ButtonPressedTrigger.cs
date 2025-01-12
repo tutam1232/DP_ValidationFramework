@@ -1,7 +1,6 @@
-﻿using Draft.Validation.WPF;
+﻿using Draft.Validation.Abstract;
 using System.ComponentModel;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 
 namespace Draft.Validation.Trigger;

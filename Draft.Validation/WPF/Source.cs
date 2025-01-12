@@ -1,3 +1,5 @@
+using Draft.Validation.Abstract;
+using Draft.Validation.WPF.Common;
 using System.ComponentModel;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,18 +14,18 @@ public static class Source
 	public static readonly DependencyProperty RulesProperty =
 		DependencyProperty.RegisterAttached(
 			"Rules",
-			typeof(List<IValidationRule>),
+			typeof(List<ValidationGUIAdapterBase>),
 			typeof(Source),
-			new PropertyMetadata(new List<IValidationRule>()));
+			new PropertyMetadata(new List<ValidationGUIAdapterBase>()));
 
 
 	[Category("Validation")]
 	[Browsable(true)]
 	[DisplayName("Rules")]
 	[AttachedPropertyBrowsableForType(typeof(TextBox))]
-	public static List<IValidationRule> GetRules(DependencyObject element)
+	public static List<ValidationGUIAdapterBase> GetRules(DependencyObject element)
 	{
-		return (List<IValidationRule>)element.GetValue(RulesProperty);
+		return (List<ValidationGUIAdapterBase>)element.GetValue(RulesProperty);
 	}
 
 
@@ -84,4 +86,25 @@ public static class Source
 			}
 		}
 	}
+
+
+
+	public static readonly DependencyProperty TestProperty =
+		DependencyProperty.RegisterAttached(
+			"Test",
+			typeof(List<object>),
+			typeof(Source),
+			new PropertyMetadata(new List<object>()));
+
+
+	[Category("Validation")]
+	[Browsable(true)]
+	[DisplayName("TEst")]
+	[AttachedPropertyBrowsableForType(typeof(TextBox))]
+	public static List<IValidationRuleStrategy<T>> GetTest<T>(DependencyObject element)
+	{
+		return (List<IValidationRuleStrategy<T>>)element.GetValue(RulesProperty);
+	}
 }
+
+

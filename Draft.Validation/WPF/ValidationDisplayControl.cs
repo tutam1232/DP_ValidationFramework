@@ -2,6 +2,8 @@
 using System.Windows;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using Draft.Validation.Abstract;
+using Draft.Validation.WPF.Common;
 
 namespace Draft.Validation.WPF;
 

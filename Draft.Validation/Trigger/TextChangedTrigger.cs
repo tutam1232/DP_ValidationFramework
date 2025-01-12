@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Draft.Validation.Abstract;
+using System.Windows.Controls;
 
 namespace Draft.Validation.Trigger;
 
