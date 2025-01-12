@@ -39,9 +39,6 @@
                             </Common:ValidationHandler.Rules>
                         </Common:ValidationHandler>
                     </WPF:Source.Handler>
-                    <WPF:Source.Rules>
-                        <RuleGUIAdapter:EmailRuleGUIAdapter />
-                    </WPF:Source.Rules>
                     <WPF:Source.Trigger>
                         <Trigger:TextChangedTrigger />
                     </WPF:Source.Trigger>
@@ -62,14 +59,15 @@
                     <TextBox Grid.Column="0"
                              x:Name="textBox1">
                         <WPF:Source.Handler>
-                            <Common:ValidationHandler />
+                            <Common:ValidationHandler>
+                                <Common:ValidationHandler.Rules>
+                                    <RuleGUIAdapter:EvenRuleGUIAdapter />
+                                </Common:ValidationHandler.Rules>
+                            </Common:ValidationHandler>
                         </WPF:Source.Handler>
                         <WPF:Source.Trigger>
                             <Trigger:TextChangedTrigger />
                         </WPF:Source.Trigger>
-                        <WPF:Source.Rules>
-                            <RuleGUIAdapter:EvenRuleGUIAdapter />
-                        </WPF:Source.Rules>
                     </TextBox>
                     <WPF:ValidationDisplayControl Grid.Column="1"
                                                   Source="{Binding ElementName=textBox1, Mode=OneWay}">
@@ -79,16 +77,20 @@
                     </WPF:ValidationDisplayControl>
                 </Grid>
             </StackPanel>
-            <!--<StackPanel>
+            <StackPanel>
                 <TextBlock Text="String length rule: (LostFocus + TextBlock)" />
                 <TextBox x:Name="textBox2">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler>
+                            <Common:ValidationHandler.Rules>
+                                <RuleGUIAdapter:LengthRuleGUIAdapter Min="2"
+                                                                     Max="6" />
+                            </Common:ValidationHandler.Rules>
+                        </Common:ValidationHandler>
+                    </WPF:Source.Handler>
                     <WPF:Source.Trigger>
                         <Trigger:LostFocusTrigger />
                     </WPF:Source.Trigger>
-                    <WPF:Source.Rules>
-                        <RuleGUIAdapter:LengthRuleGUIAdapter Min="3"
-                                                             Max="6" />
-                    </WPF:Source.Rules>
                 </TextBox>
                 <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox2, Mode=OneWay}">
                     <WPF:ValidationDisplayControl.Display>
@@ -99,12 +101,16 @@
             <StackPanel>
                 <TextBlock Text="Not empty rule: (LostFoucs + MessageBox)" />
                 <TextBox x:Name="textBox3">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler>
+                            <Common:ValidationHandler.Rules>
+                                <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
+                            </Common:ValidationHandler.Rules>
+                        </Common:ValidationHandler>
+                    </WPF:Source.Handler>
                     <WPF:Source.Trigger>
                         <Trigger:LostFocusTrigger />
                     </WPF:Source.Trigger>
-                    <WPF:Source.Rules>
-                        <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
-                    </WPF:Source.Rules>
                 </TextBox>
                 <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox3, Mode=OneWay}">
                     <WPF:ValidationDisplayControl.Display>
@@ -115,15 +121,19 @@
             <StackPanel>
                 <TextBlock Text="Number in range, odd and not empty:" />
                 <TextBox x:Name="textBox5">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler>
+                            <Common:ValidationHandler.Rules>
+                                <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
+                                <RuleGUIAdapter:OddRuleGUIAdapter />
+                                <RuleGUIAdapter:RangeRuleGUIAdapter Min="10"
+                                                                    Max="50" />
+                            </Common:ValidationHandler.Rules>
+                        </Common:ValidationHandler>
+                    </WPF:Source.Handler>
                     <WPF:Source.Trigger>
-                        <Trigger:LostFocusTrigger />
+                        <Trigger:TextChangedTrigger />
                     </WPF:Source.Trigger>
-                    <WPF:Source.Rules>
-                        <RuleGUIAdapter:RangeRuleGUIAdapter Min="2"
-                                                            Max="100" />
-                        <RuleGUIAdapter:OddRuleGUIAdapter />
-                        <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
-                    </WPF:Source.Rules>
                 </TextBox>
                 <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox5, Mode=OneWay}">
                     <WPF:ValidationDisplayControl.Display>
@@ -134,20 +144,24 @@
             <StackPanel>
                 <TextBlock Text="Regex rule: (Phone number VN) (ButtonClick + MessageBox)" />
                 <TextBox x:Name="textBox4">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler>
+                            <Common:ValidationHandler.Rules>
+                                <RuleGUIAdapter:RegexGUIAdapter ErrorMessage="Not valid VietNam phone number"
+                                                                Pattern="^(0|\\+84)([2-9][0-9]{8})$" />
+                            </Common:ValidationHandler.Rules>
+                        </Common:ValidationHandler>
+                    </WPF:Source.Handler>
                     <WPF:Source.Trigger>
                         <Trigger:ButtonPressedTrigger TriggerButton="{x:Reference Name=button}" />
                     </WPF:Source.Trigger>
-                    <WPF:Source.Rules>
-                        <RuleGUIAdapter:RegexGUIAdapter Pattern="^(0|\\+84)([2-9][0-9]{8})$"
-                                                        ErrorMessage="Not a valid Vietnamese phone number" />
-                    </WPF:Source.Rules>
                 </TextBox>
                 <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox4, Mode=OneWay}">
                     <WPF:ValidationDisplayControl.Display>
                         <Display:MessageBoxDisplay />
                     </WPF:ValidationDisplayControl.Display>
                 </WPF:ValidationDisplayControl>
-            </StackPanel>-->
+            </StackPanel>
 
             <Button x:Name="button"
                     Content="Submit"

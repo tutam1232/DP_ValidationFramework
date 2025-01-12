@@ -9,27 +9,6 @@ namespace Draft.Validation.WPF;
 public static class Source
 {
 	/// <summary>
-	/// Rules attached property
-	/// </summary>
-	public static readonly DependencyProperty RulesProperty =
-		DependencyProperty.RegisterAttached(
-			"Rules",
-			typeof(List<ValidationGUIAdapterBase>),
-			typeof(Source),
-			new PropertyMetadata(new List<ValidationGUIAdapterBase>()));
-
-
-	[Category("Validation")]
-	[Browsable(true)]
-	[DisplayName("Rules")]
-	[AttachedPropertyBrowsableForType(typeof(TextBox))]
-	public static List<ValidationGUIAdapterBase> GetRules(DependencyObject element)
-	{
-		return (List<ValidationGUIAdapterBase>)element.GetValue(RulesProperty);
-	}
-
-
-	/// <summary>
 	/// Handler attached property (hidden)
 	/// </summary>
 	public static readonly DependencyProperty HandlerProperty =
@@ -49,9 +28,6 @@ public static class Source
 	[AttachedPropertyBrowsableForType(typeof(TextBox))]
 	public static ValidationHandler GetHandler(DependencyObject element)
 	{
-		var handler = (ValidationHandler)element.GetValue(HandlerProperty);
-		var rules = GetRules(element);
-		handler.Rules = rules;
 		return (ValidationHandler)element.GetValue(HandlerProperty);
 	}
 

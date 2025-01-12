@@ -15,7 +15,12 @@ public class ButtonPressedTrigger : ValidationTriggerBase
 	public FrameworkElement? TriggerButton
 	{
 		get => _triggerButton;
-		set =>_triggerButton = value;
+		set
+		{
+			_triggerButton?.RemoveHandler(ButtonBase.ClickEvent, _buttonPressedHandler);
+			_triggerButton = value;
+			_triggerButton?.AddHandler(ButtonBase.ClickEvent, _buttonPressedHandler);
+		}
 	}
 
 	private readonly RoutedEventHandler? _buttonPressedHandler;
