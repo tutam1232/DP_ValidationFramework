@@ -5,20 +5,31 @@ namespace Draft.Validation.WPF.Common;
 
 public class ValidationHandler
 {
-	public List<ValidationGUIAdapterBase> Rules { get; set; }
+	public List<ValidationGUIAdapterBase> Rules { get; init; } = new();
 
 	[Browsable(false)]
-	public List<ValidationDisplayBase> Displays { get; set; }
+	public List<ValidationDisplayBase> Displays { get; init; } = new();
 
-	public ValidationHandler()
+	public List<ValidateResult> ValidateGUIRules(string content)
 	{
-		Rules = new List<ValidationGUIAdapterBase>();
-		Displays = new List<ValidationDisplayBase>();
+		var results = new List<ValidateResult>();
+		try
+		{
+			foreach (var rule in Rules)
+			{
+				var result = rule.Validate(content);
+				results.Add(result);
+			}
+		}
+		catch (InvalidRuleFormartException ex)
+		{
+			results = new List<ValidateResult> { new ValidateResult() { IsValid = false, Message = ex.Message } };
+		}
+		return results;
 	}
 
-	public void Validate(string content)
+	public void DisplayResult(List<ValidateResult> results)
 	{
-		List<ValidateResult> results = Rules.Select(rule => rule.Validate(content)).ToList();
 		Displays.ForEach(display => display.Notify(results));
 	}
 }

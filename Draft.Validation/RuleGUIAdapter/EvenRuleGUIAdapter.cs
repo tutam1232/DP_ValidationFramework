@@ -15,12 +15,8 @@ public class EvenRuleGUIAdapter : ValidationGUIAdapterBase
 
 	public override ValidateResult Validate(string content)
 	{
-		var result = IsIntegerValue(content, out int intValue);
-		if (result != null)
-		{
-			return result;
-		}
-		var isValid = _evenRuleStrategy.IsValid(intValue);
+		var value = CastIntegerValue(content);
+		var isValid = _evenRuleStrategy.IsValid(value);
 		var errorMessage = isValid ? null : _evenRuleStrategy.ErrorMessage;
 		return new ValidateResult() { IsValid = isValid, Message = errorMessage };
 	}

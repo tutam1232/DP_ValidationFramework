@@ -14,6 +14,7 @@ namespace Draft.TestFramework
 
 		private void button_Click(object sender, RoutedEventArgs e)
 		{
+			MessageBox.Show("Form submitted!");
 		}
 	}
 }

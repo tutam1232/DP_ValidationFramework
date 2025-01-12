@@ -8,10 +8,4 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="Draft.Validation">
-      <HintPath>..\..\..\Draft.Validation.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

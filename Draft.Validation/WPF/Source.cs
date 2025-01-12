@@ -1,43 +1,13 @@
 using Draft.Validation.Abstract;
 using Draft.Validation.WPF.Common;
-using System;
 using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 
 namespace Draft.Validation.WPF;
 
 public static class Source
 {
-	static Source()
-	{
-		EventManager.RegisterClassHandler(typeof(TextBox), TextBoxBase.TextChangedEvent, new TextChangedEventHandler(OnTextBoxTextChanged), true);
-	}
-
-	private static void OnTextBoxTextChanged(object sender, TextChangedEventArgs e)
-	{
-		if (sender is TextBox textBox && GetHandler(textBox) is ValidationHandler handler)
-		{
-			var validateResults = new List<ValidateResult>();
-			var instance = textBox.DataContext;
-			var properties = instance.GetType().GetProperties();
-			foreach (var property in properties)
-			{
-				var attributes = property.GetCustomAttributes<ValidationAttribute>().ToList();
-
-				validateResults.AddRange(attributes.Select(a => new ValidateResult()
-				{
-					IsValid = a.IsValid(property.GetValue(instance)),
-					Message = a.IsValid(property.GetValue(instance)) ? null : a.ErrorMessage
-				}).ToList());
-			}
-			handler.Displays.ForEach(d => d.Notify(validateResults));
-		}
-	}
-
 	/// <summary>
 	/// Handler attached property (hidden)
 	/// </summary>

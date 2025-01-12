@@ -9,15 +9,13 @@ public abstract class ValidationGUIAdapterBase
 	/// </summary>
 	/// <param name="content"></param>
 	/// <returns></returns>
-	protected static ValidateResult? IsIntegerValue(string content, out int intValue)
+	protected static int CastIntegerValue(string content)
 	{
-		intValue = 0;
 		if (int.TryParse(content, out int value))
 		{
-			intValue = value;
-			return null;
+			return value;
 		}
-		return new ValidateResult() { IsValid = false, Message = "This is not an integer." };
+		throw new InvalidRuleFormartException("Invalid format for Integer validation rule");
 	}
 
 	public abstract ValidateResult Validate(string content);

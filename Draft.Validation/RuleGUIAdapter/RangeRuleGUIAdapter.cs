@@ -38,17 +38,13 @@ public class RangeRuleGUIAdapter : ValidationGUIAdapterBase
 
 	public override ValidateResult Validate(string content)
 	{
+		var value = CastIntegerValue(content);
 		if (Min >= Max)
 		{
 			throw new InvalidOperationException("Min value must be less than Max value");
 		}
 		var rangeRuleStrategy = new RangeRuleStrategy(Min, Max);
-		var result = IsIntegerValue(content, out int intValue);
-		if (result != null)
-		{
-			return result;
-		}
-		var isValid = rangeRuleStrategy.IsValid(intValue);
+		var isValid = rangeRuleStrategy.IsValid(value);
 		var errorMessage = isValid ? null : rangeRuleStrategy.ErrorMessage;
 		return new ValidateResult() { IsValid = isValid, Message = errorMessage };
 	}

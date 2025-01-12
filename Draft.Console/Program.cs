@@ -1,6 +1,4 @@
-﻿using Draft.Validation.Validators;
-
-namespace Draft.Console
+﻿namespace Draft.Console
 {
 	internal class Program
 	{

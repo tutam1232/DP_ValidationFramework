@@ -12,11 +12,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.TestFramework", "Draf
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.Validation", "Draft.Validation\Draft.Validation.csproj", "{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.TestWPF", "Draft.TestWPF\Draft.TestWPF.csproj", "{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.Validation.Console", "Draft.Validation.Console\Draft.Validation.Console.csproj", "{41EE2E73-7CB2-489A-B3F7-8D4BF1C60255}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draft.Validation.Console", "Draft.Validation.Console\Draft.Validation.Console.csproj", "{41EE2E73-7CB2-489A-B3F7-8D4BF1C60255}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Draft.Console", "Draft.Console\Draft.Console.csproj", "{6F95B04B-FB77-4499-9CDD-EC771926F944}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Draft.Console", "Draft.Console\Draft.Console.csproj", "{6F95B04B-FB77-4499-9CDD-EC771926F944}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,10 +34,6 @@ Global
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AFD1EA6B-9D5D-4B0B-BF2B-744E8876FD98}.Release|Any CPU.Build.0 = Release|Any CPU
-		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{622AD9CC-DB26-4DA4-B099-7AFE83A6353C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{41EE2E73-7CB2-489A-B3F7-8D4BF1C60255}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{41EE2E73-7CB2-489A-B3F7-8D4BF1C60255}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{41EE2E73-7CB2-489A-B3F7-8D4BF1C60255}.Release|Any CPU.ActiveCfg = Release|Any CPU
