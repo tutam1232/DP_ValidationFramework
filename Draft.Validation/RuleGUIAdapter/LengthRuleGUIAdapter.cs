@@ -21,10 +21,6 @@ public class LengthRuleGUIAdapter : ValidationGUIAdapterBase
 		get => _min;
 		set
 		{
-			if (value >= _max)
-			{
-				throw new ArgumentException("Min value must be less than Max value");
-			}
 			_min = value;
 		}
 	}
@@ -36,16 +32,16 @@ public class LengthRuleGUIAdapter : ValidationGUIAdapterBase
 		get => _max;
 		set
 		{
-			if (value <= _min)
-			{
-				throw new ArgumentException("Max value must be greater than Min value");
-			}
 			_max = value;
 		}
 	}
 
 	public override ValidateResult Validate(string content)
 	{
+		if (Min >= Max)
+		{
+			throw new InvalidOperationException("Min value must be less than Max value");
+		}
 		var lengthRuleStrategy = new LengthRuleStrategy(Min, Max);
 		var isValid = lengthRuleStrategy.IsValid(content);
 		var errorMessage = isValid ? null : lengthRuleStrategy.ErrorMessage;

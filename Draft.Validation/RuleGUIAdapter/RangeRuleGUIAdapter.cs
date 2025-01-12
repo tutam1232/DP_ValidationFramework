@@ -18,10 +18,6 @@ public class RangeRuleGUIAdapter : ValidationGUIAdapterBase
 		get => _min;
 		set
 		{
-			if (value >= _max)
-			{
-				throw new ArgumentException("Min value must be less than Max value");
-			}
 			_min = value;
 		}
 	}
@@ -33,10 +29,6 @@ public class RangeRuleGUIAdapter : ValidationGUIAdapterBase
 		get => _max;
 		set
 		{
-			if (value <= _min)
-			{
-				throw new ArgumentException("Max value must be greater than Min value");
-			}
 			_max = value;
 		}
 	}
@@ -46,6 +38,10 @@ public class RangeRuleGUIAdapter : ValidationGUIAdapterBase
 
 	public override ValidateResult Validate(string content)
 	{
+		if (Min >= Max)
+		{
+			throw new InvalidOperationException("Min value must be less than Max value");
+		}
 		var rangeRuleStrategy = new RangeRuleStrategy(Min, Max);
 		var result = IsIntegerValue(content, out int intValue);
 		if (result != null)

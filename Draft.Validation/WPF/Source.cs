@@ -37,15 +37,27 @@ public static class Source
 			"Handler",
 			typeof(ValidationHandler),
 			typeof(Source),
-			new PropertyMetadata(new ValidationHandler()));
+			new PropertyMetadata(new ValidationHandler(), OnValidationHandlerChanged));
 
-	[Browsable(false)]
+	private static void OnValidationHandlerChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+	{
+	}
+
+	[Category("Validation")]
+	[Browsable(true)]
+	[DisplayName("Handler")]
+	[AttachedPropertyBrowsableForType(typeof(TextBox))]
 	public static ValidationHandler GetHandler(DependencyObject element)
 	{
 		var handler = (ValidationHandler)element.GetValue(HandlerProperty);
 		var rules = GetRules(element);
 		handler.Rules = rules;
 		return (ValidationHandler)element.GetValue(HandlerProperty);
+	}
+
+	public static void SetHandler(DependencyObject element, ValidationHandler value)
+	{
+		element.SetValue(HandlerProperty, value);
 	}
 
 
@@ -85,25 +97,6 @@ public static class Source
 				newValue.Attach();
 			}
 		}
-	}
-
-
-
-	public static readonly DependencyProperty TestProperty =
-		DependencyProperty.RegisterAttached(
-			"Test",
-			typeof(List<object>),
-			typeof(Source),
-			new PropertyMetadata(new List<object>()));
-
-
-	[Category("Validation")]
-	[Browsable(true)]
-	[DisplayName("TEst")]
-	[AttachedPropertyBrowsableForType(typeof(TextBox))]
-	public static List<IValidationRuleStrategy<T>> GetTest<T>(DependencyObject element)
-	{
-		return (List<IValidationRuleStrategy<T>>)element.GetValue(RulesProperty);
 	}
 }
 

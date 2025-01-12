@@ -7,25 +7,152 @@
         xmlns:RuleGUIAdapter="clr-namespace:Draft.Validation.RuleGUIAdapter;assembly=Draft.Validation"
         xmlns:Trigger="clr-namespace:Draft.Validation.Trigger;assembly=Draft.Validation"
         xmlns:Display="clr-namespace:Draft.Validation.Display;assembly=Draft.Validation"
+        xmlns:Common="clr-namespace:Draft.Validation.WPF.Common;assembly=Draft.Validation"
         x:Name="window"
         x:Class="Draft.TestFramework.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow"
         Height="450"
         Width="800">
-    <StackPanel>
-        <TextBox x:Name="textBox">
-            <WPF:Source.Rules>
-                <RuleGUIAdapter:EmailRuleGUIAdapter />
-            </WPF:Source.Rules>
-            <WPF:Source.Trigger>
-                <Trigger:TextChangedTrigger />
-            </WPF:Source.Trigger>
-        </TextBox>
-        <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox, Mode=OneWay}">
-            <WPF:ValidationDisplayControl.Display>
-                <Display:TextBlockDisplay />
-            </WPF:ValidationDisplayControl.Display>
-        </WPF:ValidationDisplayControl>
-    </StackPanel>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Width="auto"
+                    Grid.Column="1"
+                    Grid.Row="1">
+            <StackPanel>
+                <TextBlock Text="Email rule:" />
+                <TextBox x:Name="textBox">
+                    <WPF:Source.Handler>
+                        <Common:ValidationHandler>
+                            <Common:ValidationHandler.Rules>
+                                <RuleGUIAdapter:EmailRuleGUIAdapter />
+                            </Common:ValidationHandler.Rules>
+                        </Common:ValidationHandler>
+                    </WPF:Source.Handler>
+                    <WPF:Source.Rules>
+                        <RuleGUIAdapter:EmailRuleGUIAdapter />
+                    </WPF:Source.Rules>
+                    <WPF:Source.Trigger>
+                        <Trigger:TextChangedTrigger />
+                    </WPF:Source.Trigger>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox, Mode=OneTime}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:TextBlockDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Number even rule: (TextChanged + Tooltip)" />
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0"
+                             x:Name="textBox1">
+                        <WPF:Source.Handler>
+                            <Common:ValidationHandler />
+                        </WPF:Source.Handler>
+                        <WPF:Source.Trigger>
+                            <Trigger:TextChangedTrigger />
+                        </WPF:Source.Trigger>
+                        <WPF:Source.Rules>
+                            <RuleGUIAdapter:EvenRuleGUIAdapter />
+                        </WPF:Source.Rules>
+                    </TextBox>
+                    <WPF:ValidationDisplayControl Grid.Column="1"
+                                                  Source="{Binding ElementName=textBox1, Mode=OneWay}">
+                        <WPF:ValidationDisplayControl.Display>
+                            <Display:ToolTipDisplay />
+                        </WPF:ValidationDisplayControl.Display>
+                    </WPF:ValidationDisplayControl>
+                </Grid>
+            </StackPanel>
+            <!--<StackPanel>
+                <TextBlock Text="String length rule: (LostFocus + TextBlock)" />
+                <TextBox x:Name="textBox2">
+                    <WPF:Source.Trigger>
+                        <Trigger:LostFocusTrigger />
+                    </WPF:Source.Trigger>
+                    <WPF:Source.Rules>
+                        <RuleGUIAdapter:LengthRuleGUIAdapter Min="3"
+                                                             Max="6" />
+                    </WPF:Source.Rules>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox2, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:TextBlockDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Not empty rule: (LostFoucs + MessageBox)" />
+                <TextBox x:Name="textBox3">
+                    <WPF:Source.Trigger>
+                        <Trigger:LostFocusTrigger />
+                    </WPF:Source.Trigger>
+                    <WPF:Source.Rules>
+                        <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
+                    </WPF:Source.Rules>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox3, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:MessageBoxDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Number in range, odd and not empty:" />
+                <TextBox x:Name="textBox5">
+                    <WPF:Source.Trigger>
+                        <Trigger:LostFocusTrigger />
+                    </WPF:Source.Trigger>
+                    <WPF:Source.Rules>
+                        <RuleGUIAdapter:RangeRuleGUIAdapter Min="2"
+                                                            Max="100" />
+                        <RuleGUIAdapter:OddRuleGUIAdapter />
+                        <RuleGUIAdapter:NotEmptyRuleGUIAdapter />
+                    </WPF:Source.Rules>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox5, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:TextBlockDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Regex rule: (Phone number VN) (ButtonClick + MessageBox)" />
+                <TextBox x:Name="textBox4">
+                    <WPF:Source.Trigger>
+                        <Trigger:ButtonPressedTrigger TriggerButton="{x:Reference Name=button}" />
+                    </WPF:Source.Trigger>
+                    <WPF:Source.Rules>
+                        <RuleGUIAdapter:RegexGUIAdapter Pattern="^(0|\\+84)([2-9][0-9]{8})$"
+                                                        ErrorMessage="Not a valid Vietnamese phone number" />
+                    </WPF:Source.Rules>
+                </TextBox>
+                <WPF:ValidationDisplayControl Source="{Binding ElementName=textBox4, Mode=OneWay}">
+                    <WPF:ValidationDisplayControl.Display>
+                        <Display:MessageBoxDisplay />
+                    </WPF:ValidationDisplayControl.Display>
+                </WPF:ValidationDisplayControl>
+            </StackPanel>-->
+
+            <Button x:Name="button"
+                    Content="Submit"
+                    Margin="0,10,0,10" />
+
+        </StackPanel>
+    </Grid>
 </Window>

@@ -6,7 +6,12 @@ namespace Draft.Validation.Abstract;
 public abstract class ValidationTriggerBase
 {
 	protected TextBox? _textBox = null;
-	public void SetTextBox(TextBox textBox)
+
+    protected ValidationTriggerBase()
+    {
+    }
+
+    public void SetTextBox(TextBox textBox)
 	{
 		_textBox = textBox;
 	}

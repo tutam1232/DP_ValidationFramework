@@ -1,7 +1,6 @@
 ﻿using System.Windows.Controls;
 using System.Windows;
 using System.ComponentModel;
-using System.Runtime.CompilerServices;
 using Draft.Validation.Abstract;
 using Draft.Validation.WPF.Common;
 
@@ -28,7 +27,6 @@ public class ValidationDisplayControl : ContentControl
 		set => SetValue(SourceProperty, value);
 	}
 
-	// Todo: Clean this up
 	private static void OnSourceChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 	{
 		if (d is ValidationDisplayControl displayer && displayer.Display != null)
@@ -69,7 +67,6 @@ public class ValidationDisplayControl : ContentControl
 		set => SetValue(DisplayProperty, value);
 	}
 
-	// Todo: Clean this up
 	private static void OnDisplayChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
 	{
 		if (d is ValidationDisplayControl displayer)
