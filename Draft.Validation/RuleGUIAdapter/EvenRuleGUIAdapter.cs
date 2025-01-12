@@ -2,7 +2,7 @@
 using Draft.Validation.Validators.Rules;
 using Draft.Validation.WPF.Common;
 
-namespace DesignPattern.Validators.Rules;
+namespace Draft.Validation.RuleGUIAdapter;
 
 public class EvenRuleGUIAdapter : ValidationGUIAdapterBase
 {

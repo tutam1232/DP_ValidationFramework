@@ -1,4 +1,4 @@
-﻿using DesignPattern.Validators.Rules;
+﻿using Draft.Validation.Validators.Rules;
 
 namespace Draft.Validation.Validators.Extensions;
 

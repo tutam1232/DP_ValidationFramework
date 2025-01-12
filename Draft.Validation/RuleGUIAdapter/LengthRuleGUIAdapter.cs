@@ -1,15 +1,15 @@
-﻿using DesignPattern.Services;
-using Draft.Validation.Abstract;
+﻿using Draft.Validation.Abstract;
+using Draft.Validation.Validators.Rules;
 using Draft.Validation.WPF.Common;
 using System.ComponentModel;
 
-namespace DesignPattern.Validators.Rules;
+namespace Draft.Validation.RuleGUIAdapter;
 
 public class LengthRuleGUIAdapter : ValidationGUIAdapterBase
 {
-    public LengthRuleGUIAdapter()
-    {
-    }
+	public LengthRuleGUIAdapter()
+	{
+	}
 
 	private int _max = 1;
 	private int _min = 0;
@@ -47,7 +47,7 @@ public class LengthRuleGUIAdapter : ValidationGUIAdapterBase
 	public override ValidateResult Validate(string content)
 	{
 		var lengthRuleStrategy = new LengthRuleStrategy(Min, Max);
-        var isValid = lengthRuleStrategy.IsValid(content);
+		var isValid = lengthRuleStrategy.IsValid(content);
 		var errorMessage = isValid ? null : lengthRuleStrategy.ErrorMessage;
 		return new ValidateResult() { IsValid = isValid, Message = errorMessage };
 	}
