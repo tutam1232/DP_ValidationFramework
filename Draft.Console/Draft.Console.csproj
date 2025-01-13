@@ -8,6 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Reference Include="DesignPattern">
+      <HintPath>..\..\..\..\Desktop\DesignPattern.dll</HintPath>
+    </Reference>
     <Reference Include="Draft.Validation">
       <HintPath>..\..\..\Draft.Validation.dll</HintPath>
     </Reference>
